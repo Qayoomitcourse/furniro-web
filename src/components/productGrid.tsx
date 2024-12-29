@@ -119,7 +119,7 @@ const ProductGrid = () => {
                 </Link>
 
                 <Link href="/like-link" className="flex items-center gap-2">
-                  <Image src="/assets/Heart.png"  width={14} height={14}  alt="Like" className="w-4 h-4" />
+                  <Image src="/assets/heart.png"  width={14} height={14}  alt="Like" className="w-4 h-4" />
                   <span className="text-[16px] font-semibold">Like</span>
                 </Link>
               </div>
