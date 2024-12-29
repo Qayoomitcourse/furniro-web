@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import {  Poppins } from 'next/font/google';
+import Link from 'next/link';
 
 const poppins = Poppins({
     subsets: ['latin'], // Specify the subset (optional)
@@ -21,9 +22,6 @@ const CartModel = () => {
         setIsOpen(!isOpen);
       };
     
-      const openCartPage = () => {
-        router.push('/cart');
-      };
     
 
   return (
@@ -84,15 +82,16 @@ const CartModel = () => {
             <span className={`${poppins.className} text-[16px] font-bold text-[#B88E2F]`}>Rs. 520,000.00</span>
           </div>
           <div className={`${poppins.className} flex space-x-4 text-[16px]`}>
-            <button
-              onClick={openCartPage}
+            <Link href={'/cart'}
+              
               className="flex-1 px-4 py-2  text-black  border border-gray-500 rounded-full text-sm hover:bg-[#B88E2F] focus:outline-non hover:text-white"
             >
                Cart
-            </button>
-            <button className="flex-1 px-4 py-2 border text-black border-gray-500 rounded-[40px] text-sm hover:bg-[#B88E2F] hover:text-white">
+            </Link>
+            <Link href={'/checkout'}
+             className="flex-1 px-4 py-2 border text-black border-gray-500 rounded-[40px] text-sm hover:bg-[#B88E2F] hover:text-white">
               Checkout
-            </button>
+            </Link>
             <button className="flex-1 px-4 py-2 text-black border border-gray-300 rounded-full text-sm hover:bg-[#B88E2F] hover:text-white">
               Comparasion
             </button>
