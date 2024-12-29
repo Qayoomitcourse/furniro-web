@@ -134,9 +134,11 @@ const OurProducts = () => {
             {/* Hover Actions */}
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
               {/* Add to Cart Button */}
-              <button className="bg-[#FFFFFF] w-[202px] h-[48px] text-[#B88E2F] px-4 py-2 text-[16px] font-semibold rounded">
-                Add to cart
-              </button>
+              <Link href="/shop/product">
+                <button className="bg-white w-[202px] h-[48px] text-[#B88E2F] px-4 py-2 text-[16px] font-semibold rounded">
+                  Add to cart
+                </button>
+              </Link>
 
               {/* Action Links (Share, Compare, Like) */}
               <div className="flex gap-6 text-white mt-4">
