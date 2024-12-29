@@ -9,7 +9,7 @@ interface DiningCart {
 const items: DiningCart[] = [
   { name: 'Dining', image: '/assets/dining.png' },
   { name: 'Living', image: '/assets/living.png' },
-  { name: 'Bedroom', image: '/assets/bedroom.png' },
+  { name: 'Bedroom', image: '/assets/Bedroom.png' },
 ];
 
 const Browsethepage = () => {
