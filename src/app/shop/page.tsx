@@ -4,8 +4,8 @@ import arrow from '../../../public/assets/arrow.png'
 import filter from '../../../public/assets/filter.png'
 import gridround from '../../../public/assets/grid-round.png'
 import viewlist from '../../../public/assets/view-list.png'
-import Pagebotumsection from '@/Components/pagebotumsection'
-import ProductGrid from '@/Components/productGrid'
+import Pagebotumsection from '@/components/pagebotumsection'
+import ProductGrid from '@/components/productGrid'
 
 
 
