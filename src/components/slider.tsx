@@ -11,16 +11,11 @@ interface Slide {
 }
 
 const data2: Slide[] = [
-  { id: '1', title: 'Bedroom', name: 'Inner Peace', image: '/assets/Bedroom.png' },
-  { id: '2', title: 'Syltherine', name: 'Stylish cafe chair', image: '/assets/slide1.png' },
-  // { name: 'Syltherine', image: '/assets/image 1' },
-  // { name: 'Leviosa', image: '/assets/slide2.png' },
-  // { name: 'Bedroom', image: '/assets/Bedroom.png' },
-  // { name: 'Respira', image: '/(2).png' },
-  // { name: 'Grifo', image: '/(3).png' },
-  // { name: 'Muggo', image: '/15.jpg' },
-  // { name: 'Pingky', image: '/16.jpg' },
-  // { name: 'Potty', image: '/2.jpg' },
+  { id: '1', title: 'Bedroom', name: 'Inner Peace', image: '/assets/slide1.png' },
+  { id: '2', title: 'Bedroom', name: 'Stylish cafe chair', image: '/assets/slide2.png' },
+  { id: '3', title: 'Syltherine', name: 'Stylish cafe chair', image: '/assets/image 1.png' },
+  { id: '4', title: 'Leviosa', name: 'Stylish cafe chair', image: '/assets/image 2.png' },
+  
 ];
 
 const Slider: React.FC = () => {
@@ -74,7 +69,7 @@ const Slider: React.FC = () => {
               blurDataURL={slide.image} // Add placeholders for low-quality previews
             />
             <div className="absolute bottom-12 left-12 bg-white p-6 rounded-lg shadow-md">
-              <p className="text-sm text-gray-500">0{index + 1}</p>
+              <p className="text-sm text-gray-500">0{index + 1} - {slide.title}</p>
               <h2 className="text-2xl font-bold mt-2">{slide.name}</h2>
             </div>
           </div>

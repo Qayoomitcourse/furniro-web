@@ -42,7 +42,7 @@ const ProductPage = () => {
       </div>
 
       {/* PRODUCT DIV */}
-      <div className="w-full h-[820] flex items-center justify-center">
+      <div className="w-full h-[820] mt-5 flex items-center justify-center">
         <div className=" h-[730] w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* left image div */}
           <div className='flex '>

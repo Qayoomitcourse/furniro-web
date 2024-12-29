@@ -30,7 +30,7 @@ const Shop = () => {
           </div>
         </section>
         {/* filter section */}
-        <section className="text-nowrap bg-theme-light">
+        <section className="text-nowrap bg-[#F9F1E7]">
           <div className="mx-auto max-w-screen-laptop px-10 lg:px-20 xl:px-32 py-6">
             <div className="flex justify-center lg:justify-between flex-wrap gap-10">
               <div className="flex justify-center items-center flex-col sm:flex-row gap-5">

@@ -1,82 +1,77 @@
-'use client'
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import Features from "../../components/Features";
+import Tophead from "../../components/Tophead";
+import Link from "next/link";
 
-const CartPage = () => {
+const page = () => {
   return (
-    <div className="flex justify-between px-10 py-8 bg-gray-50">
-      {/* Cart Items */}
-      <div className="w-2/3">
-        <table className="w-full border-collapse border border-gray-200">
-          <thead className="bg-beige-100">
-            <tr>
-              <th className="text-left px-4 py-2 border border-gray-200">Product</th>
-              <th className="text-left px-4 py-2 border border-gray-200">Price</th>
-              <th className="text-left px-4 py-2 border border-gray-200">Quantity</th>
-              <th className="text-left px-4 py-2 border border-gray-200">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="px-4 py-4 flex items-center space-x-4 border border-gray-200">
-                <Image
-                  src="/assets/asgard sofa.png" 
-                  alt="Asgaard sofa"
-                  width={100}
-                  height={100}
-                  className="w-20 h-20 rounded-lg object-cover"
-                />
-                <span>Asgaard sofa</span>
-              </td>
-              <td className="px-4 py-2 border border-gray-200">Rs. 250,000.00</td>
-              <td className="px-4 py-2 border border-gray-200">
-                <input
-                  type="number"
-                  defaultValue="1"
-                  className="w-12 text-center border border-gray-300 rounded"
-                />
-              </td>
-              <td className="px-4 py-2 border border-gray-200">Rs. 250,000.00</td>
-              <td className="px-4 py-2 text-center border border-gray-200">
-                <button>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="gold"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <>
+      <Tophead pageName="Cart" />
+      <div className="flex flex-col lg:flex-row items-start justify-center gap-6 p-6 mt-12 mb-12">
+        {/* Table Section */}
+        <div className="w-full lg:w-[817px] overflow-x-auto">
+          <table className="w-full border-collapse text-left min-w-[600px]">
+            <thead className="bg-[#F9F1E7]">
+              <tr>
+                <th className="p-4 border-b">Product</th>
+                <th className="p-4 border-b">Price</th>
+                <th className="p-4 border-b">Quantity</th>
+                <th className="p-4 border-b">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b">
+                <td className="p-4 flex items-center gap-4">
+                  <Image
+                    src="/assets/Asgaard sofa.png"
+                    alt="Asgaard sofa"
+                    width={60}
+                    height={60}
+                    className="rounded-md"
+                  />
+                  <span>Asgaard sofa</span>
+                </td>
+                <td className="p-4">Rs. 250,000.00</td>
+                <td className="p-4">
+                  <input
+                    type="number"
+                    defaultValue="1"
+                    min="1"
+                    className="w-16 p-2 border rounded text-center"
+                  />
+                </td>
+                <td className="p-4">Rs. 250,000.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      {/* Cart Totals */}
-      <div className="w-1/3 p-6 bg-beige-100 rounded-lg">
-        <h2 className="text-xl font-bold mb-4">Cart Totals</h2>
-        <div className="flex justify-between mb-2">
-          <span className="text-gray-500">Subtotal</span>
-          <span className="text-gray-500">Rs. 250,000.00</span>
+        {/* Cart Total Section */}
+        <div className="w-full lg:w-[393px] h-auto lg:h-[390px] bg-[#F9F1E7] p-6 rounded-md shadow-md flex flex-col justify-center">
+          <h3 className="font-semibold mb-6 w-full text-center text-[24px] sm:text-[32px]">
+            Cart Totals
+          </h3>
+          <div className="space-y-4 px-6 mt-6">
+            <div className="flex justify-between">
+              <span>Subtotal</span>
+              <span className="text-[#9F9F9F]">Rs. 250,000.00</span>
+            </div>
+            <div className="flex justify-between font-bold text-lg">
+              <span>Total</span>
+              <span className="text-primary">Rs. 250,000.00</span>
+            </div>
+          </div>
+          <Link
+            href="/checkout"
+            className="w-[222px] m-auto mt-8 text-black border-2 text-center border-black py-2 px-4 rounded-md hover:bg-primary hover:text-white transition"
+          >
+            Check Out
+          </Link>
         </div>
-        <div className="flex justify-between font-bold text-lg mb-6">
-          <span>Total</span>
-          <span className="text-gold-500">Rs. 250,000.00</span>
-        </div>
-        <button className="w-full px-6 py-2 text-center text-white bg-black rounded-lg">
-          Check Out
-        </button>
       </div>
-    </div>
+      <Features />
+    </>
   );
 };
 
-export default CartPage
+export default page;
