@@ -79,26 +79,22 @@ const ProductDetails = () => {
       </div>
 
       {/* Images Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-        <div className="relative bg-blue-500 border rounded-lg overflow-hidden">
+      <div className="grid grid-cols-1 justify-between sm:grid-cols-2 gap-4 mt-8">
+        <div className="relative  border rounded-lg overflow-hidden">
           <Image
             src="/assets/group 106.png"
             alt="Group 106"
-            layout="responsive"
-            width={500}
+            width={730}
             height={500}
-            objectFit="cover"
             className="rounded"
           />
         </div>
-        <div className="relative bg-gray-200 border rounded-lg overflow-hidden">
+        <div className="relative border justify-center rounded-lg overflow-hidden">
           <Image
             src="/assets/group 107.png"
             alt="Group 107"
-            layout="responsive"
-            width={500}
+            width={730}
             height={500}
-            objectFit="cover"
             className="rounded"
           />
         </div>

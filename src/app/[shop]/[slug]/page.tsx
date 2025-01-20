@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MinusIcon, PlusIcon } from 'lucide-react';
 import Image from 'next/image';
 import arrow from '../../../../public/assets/arrow.png';
@@ -14,18 +14,60 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import TabsComponent from '@/components/producttabs';
 import RelatedProducts from '@/components/relatedproduct';
 import Link from 'next/link';
+import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
+import { addToCart } from '@/app/store/features/cart';
 
-const ProductPage = () => {
-  const [selectedImage, setSelectedImage] = useState(asgaardsofa);
+const ProductPage = ({ params }: { params: { slug: string } }) => {
+  const dispatch = useAppDispatch();
+  const products = useAppSelector((state) => state.product);
+
+  // Initialize state for slug
+  const [slug, setSlug] = useState<any>(null);
+  const [selectedImage, setSelectedImage] = useState('');  
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState('L');
-  const [selectedColor, setSelectedColor] = useState('purple'); // Default color
+  const [selectedColor, setSelectedColor] = useState('purple');
+  
+  useEffect(() => {
+    // Ensure params is resolved before accessing slug
+    const getProduct = async () => {
+      const selectedProduct = products.find((product) => product.slug === params.slug);
+      if (selectedProduct) {
+        setSlug(selectedProduct);
+        setSelectedImage(selectedProduct.image);  // Set default image
+      }
+    };
 
-  const thumbnails = [
+    if (params.slug) {
+      getProduct();
+    }
+  }, [params.slug, products]);
+
+  if (!slug) {
+    return <div>Product not found</div>;
+  }
+
+  const handleAddToCart = () => {
+    if (!slug) return;
+
+    dispatch(
+      addToCart({
+        id: slug.id,
+        name: slug.name,
+        price: slug.price,
+        image: slug.image,
+        quantity,
+        size: selectedSize,
+        color: selectedColor,
+      })
+    );
+  };
+
+  const thumbnails : any = [
     { id: 1, src: productImg1 },
     { id: 2, src: productImg2 },
     { id: 3, src: productImg3 },
-    { id: 4, src: productImg4 }
+    { id: 4, src: productImg4 },
   ];
 
   return (
@@ -36,7 +78,7 @@ const ProductPage = () => {
         <Image src={arrow} alt="arrow" width={17} height={22} />
         <span className="text-gray-500">Shop</span>
         <Image src={arrow} alt="arrow" width={17} height={22} />
-        <span className="text-black font-semibold text-[16px]">Asgaard sofa</span>
+        <span className="text-black font-semibold text-[16px]">{slug.name}</span>
       </div>
 
       {/* PRODUCT DIV */}
@@ -65,15 +107,15 @@ const ProductPage = () => {
           {/* Right product details */}
           <div className="flex flex-col justify-between">
             <div>
-              <h1 className="text-[32px] sm:text-[42px] font-semibold">Asgaard sofa</h1>
-              <p className="text-2xl text-[#9F9F9F] mb-4">Rs. 250,000.00</p>
+              <h1 className="text-[32px] sm:text-[42px] font-semibold">{slug.name}</h1>
+              <p className="text-2xl text-[#9F9F9F] mb-4">Rs. {slug.price}</p>
               <div className="flex items-center">
                 <Image src={stars} alt="stars" width={100} height={20} className="w-[124px] h-[20px]" />
                 <div className="bg-[#9F9F9F] w-[5px] h-[30px] mx-4" />
                 <p>5 Customer Review</p>
               </div>
               <div className="mt-4 text-[16px] sm:text-[20px] text-gray-700">
-                Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.
+                {slug.description}
               </div>
             </div>
 
@@ -81,7 +123,7 @@ const ProductPage = () => {
             <div className="mt-7 mb-6">
               <p className="font-[18px] mb-2">Size</p>
               <div className="flex gap-4">
-                {['L', 'XL', 'XS'].map((size) => (
+                {slug.size.map((size:any) => (
                   <button
                     key={size}
                     className={`px-4 py-2 border rounded ${selectedSize === size ? 'border-black bg-[#B88E2F] text-white' : 'border-gray-300 bg-[#F9F1E7] hover:border-black'}`}
@@ -97,7 +139,7 @@ const ProductPage = () => {
             <div className="mb-6">
               <p className="font-medium mb-2">Color</p>
               <div className="flex gap-4">
-                {['#816DFA', '#000000', '#B88E2F'].map((color) => (
+                {slug.colour.map((color:any) => (
                   <button
                     key={color}
                     style={{ backgroundColor: color }}
@@ -119,9 +161,9 @@ const ProductPage = () => {
                   <PlusIcon className="w-4 h-4" />
                 </button>
               </div>
-              <Link href={'/shop/product'} className="w-[215px] h-[64px] text-black text-[24px] border border-black rounded-[15px] hover:bg-[#B88E2F]">
+              <button onClick={handleAddToCart} className="w-[215px] h-[64px] text-black text-[24px] border border-black rounded-[15px] hover:bg-[#B88E2F]">
                 Add To Cart
-              </Link>
+              </button>
               <Link href={'/comparison'} className="w-[215px] h-[64px] text-[24px] border border-black px-4 py-2 rounded-[15px] hover:bg-[#B88E2F]">
                 Compare
               </Link>
@@ -133,19 +175,19 @@ const ProductPage = () => {
               {/* SKU */}
               <div className="flex items-center mb-2">
                 <span className="w-[100px] text-gray-500">SKU</span>
-                <span className="text-gray-900">: SS001</span>
+                <span className="text-gray-900">: {slug.sku}</span>
               </div>
 
               {/* Category */}
               <div className="flex items-center mb-2">
                 <span className="w-[100px] text-gray-500">Category</span>
-                <span className="text-gray-900">: Sofas</span>
+                <span className="text-gray-900">: {slug.Category}</span>
               </div>
 
               {/* Tags */}
               <div className="flex items-center mb-2">
                 <span className="w-[100px] text-gray-500">Tags</span>
-                <span className="text-gray-900">: Sofa, Chair, Home, Shop</span>
+                <span className="text-gray-900">: {slug.tags}</span>
               </div>
 
               {/* Share */}
@@ -163,7 +205,6 @@ const ProductPage = () => {
       </div>
       <br />
       <br />
-      
 
       {/* Product Tabs */}
       <div className="w-full mt-8">
@@ -171,7 +212,7 @@ const ProductPage = () => {
       </div>
 
       {/* Related Products */}
-      <RelatedProducts />
+      <RelatedProducts currentProductSlug={slug?.slug} />
     </div>
   );
 };

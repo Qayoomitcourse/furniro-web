@@ -8,12 +8,17 @@ import cart from '../../public/assets/cart.png';
 import CartModel from './cartmodel';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { RootState } from '../app/store/store';
 
 const NavIcons = () => {
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
   const router = useRouter();
   const isLoggedIn = true;
+
+  // Select cart items from the Redux store
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   const handleProfile = () => {
     if (!isLoggedIn) {
@@ -23,7 +28,6 @@ const NavIcons = () => {
     }
   };
 
-  
   return (
     <div className="flex space-x-6 text-lg text-black">
       <div className="flex items-center relative space-x-4 justify-between w-full sm:w-auto sm:justify-end">
@@ -70,12 +74,13 @@ const NavIcons = () => {
             width={30}
             height={30}
             className="cursor-pointer z-[9999]"
-            onClick={()=> setCartOpen((prev) =>!prev)}
+            onClick={() => setCartOpen((prev) => !prev)}
           />
-          <span className="absolute -top-4 -right-4 z-20  bg-[#D4AF37] text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
-            2
+          {/* Display the number of cart items */}
+          <span className="absolute -top-4 -right-4 z-20 bg-[#D4AF37] text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+            {cartItems.length} {/* Dynamically display the cart count */}
           </span>
-          {isCartOpen && ( <CartModel/>)} 
+          {isCartOpen && <CartModel />}
         </div>
       </div>
     </div>

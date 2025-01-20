@@ -1,11 +1,15 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import productList from "./productList"; 
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useAppSelector } from '@/app/store/hooks';
 
-const RelatedProducts = () => {
-  // Fetch the first 4 products dynamically
-  const relatedProducts = productList.slice(0, 4);
+const RelatedProducts = ({ currentProductSlug }: { currentProductSlug: string }) => {
+  const products = useAppSelector((state) => state.product);
+
+  // Filter out the current product and get the first 4 related products
+  const relatedProducts = products
+    .filter((product) => product.slug !== currentProductSlug)  // Exclude the current product
+    .slice(0, 4);  // Limit to 4 products
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -58,7 +62,7 @@ const RelatedProducts = () => {
             {/* Hover Actions */}
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
               {/* Add to Cart Button */}
-              <Link href={`/shop/product`}>
+              <Link href={`/${product.Category}/${product.slug}`}>
                 <button className="bg-[#FFFFFF] w-[202px] h-[48px] text-[#B88E2F] px-4 py-2 text-[16px] font-semibold rounded">
                   Add to cart
                 </button>
@@ -110,12 +114,12 @@ const RelatedProducts = () => {
         ))}
       </div>
 
-       {/* Show More Button */}
-       <div className="mt-8 flex  justify-center">
-        <div className="px-6 py-2 w-[245px] h-[48px] border text-center justify-center border-[#B88E2F] text-[#B88E2F] text-[16px] font-bold rounded hover:bg-[#B88E2F] hover:text-white transition" >
-        <Link href="/shop" className="px-6 py-2 w-[245px] h-[48px] border-[#B88E2F] text-[#B88E2F] text-[16px] font-bold rounded hover:bg-[#B88E2F] hover:text-white transition">
+      {/* Show More Button */}
+      <div className="mt-8 flex justify-center">
+        <div className="px-6 py-2 w-[245px] h-[48px] border text-center justify-center border-[#B88E2F] text-[#B88E2F] text-[16px] font-bold rounded hover:bg-[#B88E2F] hover:text-white transition">
+          <Link href="/shop" className="px-6 py-2 w-[245px] h-[48px] border-[#B88E2F] text-[#B88E2F] text-[16px] font-bold rounded hover:bg-[#B88E2F] hover:text-white transition">
             Show More
-        </Link>
+          </Link>
         </div>
       </div>
     </div>

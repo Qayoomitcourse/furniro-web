@@ -7,6 +7,7 @@ type Product = {
     discountPrice: string | null;
     discount: string | null;
     isNew?: boolean;
+    category?: string
   };
   
 
@@ -19,6 +20,7 @@ type Product = {
     price: "Rp 2.500.000",
     discountPrice: "Rp 3.500.000",
     discount: "-30%",
+    category: "chairs"
   },
   {
     id: 2,
@@ -28,6 +30,7 @@ type Product = {
     price: "Rp 2.500.000",
     discountPrice: null,
     discount: null,
+    category: "Sofa"
   },
   {
     id: 3,
@@ -37,6 +40,7 @@ type Product = {
     price: "Rp 7.000.000",
     discountPrice: "Rp 14.000.000",
     discount: "-50%",
+    category: "Sofa"
   },
   {
     id: 4,
@@ -47,80 +51,88 @@ type Product = {
     discountPrice: null,
     discount: null,
     isNew: true,
+    category: "Table & Stool"
   },
+
   {
-    id: 5,
+    id:5,
     image: "/assets/image 1.png",
     name: "Sytherine",
     description: "Stylish cafe chair",
     price: "Rp 2.500.000",
     discountPrice: "Rp 3.500.000",
     discount: "-30%",
+    category:"Chair"
   },
   {
-    id: 6,
+    id:6,
     image: "/assets/image 2.png",
     name: "Leviosa",
     description: "Stylish cafe chair",
     price: "Rp 2.500.000",
     discountPrice: null,
     discount: null,
+    category: "Chair"
   },
   {
-    id: 7,
+    id:7,
     image: "/assets/image 3.png",
     name: "Lolito",
     description: "Luxury big sofa",
     price: "Rp 7.000.000",
     discountPrice: "Rp 14.000.000",
     discount: "-50%",
+    category: "Sofa"
   },
   {
-    id: 8,
+    id:8,
     image: "/assets/image 4.png",
     name: "Respira",
     description: "Outdoor bar table and stool",
     price: "Rp 500.000",
     discountPrice: null,
-    discount: null,
-    isNew: true,
+    discount: "New",
+    category: "Table & Stool"
   },
   {
-    id: 9,
-    image: "/assets/image 1.png",
-    name: "Sytherine",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: "Rp 3.500.000",
-    discount: "-30%",
-  },
-  {
-    id: 10,
-    image: "/assets/image 2.png",
-    name: "Leviosa",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
+    id:9,
+    image: "/assets/Image 5.png",
+    name: "Grifo",
+    description: "Night lamp",
+    price: "Rp 1.500.000",
     discountPrice: null,
     discount: null,
+    category:"Lapmps"
   },
   {
-    id: 11,
-    image: "/assets/image 3.png",
-    name: "Lolito",
-    description: "Luxury big sofa",
+    id:10,
+    image: "/assets/image 6.png",
+    name: "Muggo",
+    description: "Small mug",
+    price: "Rp 150.000",
+    discountPrice: null,
+    discount: "New",
+    category: "Decoration Accessories"
+  },
+  {
+    id:11,
+    image: "/assets/image 7.png",
+    name: "Pingky",
+    description: "Cute bed set",
     price: "Rp 7.000.000",
     discountPrice: "Rp 14.000.000",
     discount: "-50%",
+    category: "Beds"
   },
   {
-    id: 12,
-    image: "/assets/image 4.png",
-    name: "Respira",
-    description: "Outdoor bar table and stool",
+    id:12,
+    image: "/assets/image 8.png",
+    name: "Potty",
+    description: "Minimalist flower pot",
     price: "Rp 500.000",
     discountPrice: null,
-    discount: null,
-    isNew: true,
+    discount: "New",
+    category: "Decoration Accessories"
   },
   {
     id: 13,
@@ -130,6 +142,7 @@ type Product = {
     price: "Rp 2.500.000",
     discountPrice: "Rp 3.500.000",
     discount: "-30%",
+    category:"Chair"
   },
   {
     id: 14,
@@ -139,6 +152,7 @@ type Product = {
     price: "Rp 2.500.000",
     discountPrice: null,
     discount: null,
+    category:"Chair"
   },
   {
     id: 15,
@@ -148,6 +162,7 @@ type Product = {
     price: "Rp 7.000.000",
     discountPrice: "Rp 14.000.000",
     discount: "-50%",
+    category:"Sofa"
   },
   {
     id: 16,
@@ -158,6 +173,7 @@ type Product = {
     discountPrice: null,
     discount: null,
     isNew: true,
+    category:"Tables $ Stools"
   },
   {
     id: 17,
@@ -167,6 +183,7 @@ type Product = {
     price: "Rp 2.500.000",
     discountPrice: "Rp 3.500.000",
     discount: "-30%",
+    category: "Chairs"
   },
   {
     id: 18,
@@ -176,6 +193,7 @@ type Product = {
     price: "Rp 2.500.000",
     discountPrice: null,
     discount: null,
+    category:"Chairs"
   },
   {
     id: 19,
@@ -185,6 +203,7 @@ type Product = {
     price: "Rp 7.000.000",
     discountPrice: "Rp 14.000.000",
     discount: "-50%",
+    category: "Chairs"
   },
   {
     id: 20,
@@ -195,191 +214,8 @@ type Product = {
     discountPrice: null,
     discount: null,
     isNew: true,
+    category: "Tables & Stools"
   },
-  {
-    id: 21,
-    image: "/assets/image 1.png",
-    name: "Sytherine",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: "Rp 3.500.000",
-    discount: "-30%",
-  },
-  {
-    id: 22,
-    image: "/assets/image 2.png",
-    name: "Leviosa",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: null,
-    discount: null,
-  },
-  {
-    id: 23,
-    image: "/assets/image 3.png",
-    name: "Lolito",
-    description: "Luxury big sofa",
-    price: "Rp 7.000.000",
-    discountPrice: "Rp 14.000.000",
-    discount: "-50%",
-  },
-  {
-    id: 24,
-    image: "/assets/image 4.png",
-    name: "Respira",
-    description: "Outdoor bar table and stool",
-    price: "Rp 500.000",
-    discountPrice: null,
-    discount: null,
-    isNew: true,
-  },
-  {
-    id: 25,
-    image: "/assets/image 1.png",
-    name: "Sytherine",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: "Rp 3.500.000",
-    discount: "-30%",
-  },
-  {
-    id: 26,
-    image: "/assets/image 2.png",
-    name: "Leviosa",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: null,
-    discount: null,
-  },
-  {
-    id: 27,
-    image: "/assets/image 3.png",
-    name: "Lolito",
-    description: "Luxury big sofa",
-    price: "Rp 7.000.000",
-    discountPrice: "Rp 14.000.000",
-    discount: "-50%",
-  },
-  {
-    id: 28,
-    image: "/assets/image 4.png",
-    name: "Respira",
-    description: "Outdoor bar table and stool",
-    price: "Rp 500.000",
-    discountPrice: null,
-    discount: null,
-    isNew: true,
-  },
-  {
-    id: 29,
-    image: "/assets/image 1.png",
-    name: "Sytherine",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: "Rp 3.500.000",
-    discount: "-30%",
-  },
-  {
-    id: 30,
-    image: "/assets/image 2.png",
-    name: "Leviosa",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: null,
-    discount: null,
-  },
-  {
-    id: 31,
-    image: "/assets/image 3.png",
-    name: "Lolito",
-    description: "Luxury big sofa",
-    price: "Rp 7.000.000",
-    discountPrice: "Rp 14.000.000",
-    discount: "-50%",
-  },
-  {
-    id: 32,
-    image: "/assets/image 4.png",
-    name: "Respira",
-    description: "Outdoor bar table and stool",
-    price: "Rp 500.000",
-    discountPrice: null,
-    discount: null,
-    isNew: true,
-  },
-  {
-    id: 33,
-    image: "/assets/image 1.png",
-    name: "Sytherine",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: "Rp 3.500.000",
-    discount: "-30%",
-  },
-  {
-    id: 34,
-    image: "/assets/image 2.png",
-    name: "Leviosa",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: null,
-    discount: null,
-  },
-  {
-    id: 35,
-    image: "/assets/image 3.png",
-    name: "Lolito",
-    description: "Luxury big sofa",
-    price: "Rp 7.000.000",
-    discountPrice: "Rp 14.000.000",
-    discount: "-50%",
-  },
-  {
-    id: 36,
-    image: "/assets/image 4.png",
-    name: "Respira",
-    description: "Outdoor bar table and stool",
-    price: "Rp 500.000",
-    discountPrice: null,
-    discount: null,
-    isNew: true,
-  },
-  {
-    id: 37,
-    image: "/assets/image 1.png",
-    name: "Sytherine",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: "Rp 3.500.000",
-    discount: "-30%",
-  },
-  {
-    id: 38,
-    image: "/assets/image 2.png",
-    name: "Leviosa",
-    description: "Stylish cafe chair",
-    price: "Rp 2.500.000",
-    discountPrice: null,
-    discount: null,
-  },
-  {
-    id: 39,
-    image: "/assets/image 3.png",
-    name: "Lolito",
-    description: "Luxury big sofa",
-    price: "Rp 7.000.000",
-    discountPrice: "Rp 14.000.000",
-    discount: "-50%",
-  },
-  {
-    id: 40,
-    image: "/assets/image 4.png",
-    name: "Respira",
-    description: "Outdoor bar table and stool",
-    price: "Rp 500.000",
-    discountPrice: null,
-    discount: null,
-    isNew: true,
-  },
+  
 ];
 export default products

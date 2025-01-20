@@ -8,7 +8,7 @@ const HomeHeroSection: React.FC = () => {
   return (
     <div
       id="HomeHeroSection"
-      className="relative w-full h-screen bg-cover bg-center flex items-center"
+      className=" relative w-full h-screen stickey bg-cover bg-center flex items-center"
       style={{
         backgroundImage: "url('/assets/benner.png')",
       }}

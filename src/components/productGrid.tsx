@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ProductList from './productList';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useAppSelector } from '@/app/store/hooks';
 
 
 type Product = {
@@ -20,6 +21,11 @@ const products: Product[] = ProductList;
 const ITEMS_PER_PAGE = 16;
 
 const ProductGrid = () => {
+
+  const data = useAppSelector((state)=>(state.product))
+
+  
+
   const [selectedForComparison, setSelectedForComparison] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -34,6 +40,9 @@ const ProductGrid = () => {
   };
 
   return (
+
+    
+
     <div className="max-w-7xl mx-auto py-8 px-4">
       {/* Comparison Section */}
       {selectedForComparison.length > 0 && (
@@ -65,7 +74,7 @@ const ProductGrid = () => {
 
       {/* Product Grid */}
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6">
-        {currentProducts.map((product) => (
+        {data.map((product) => (
           <div key={product.id} className="relative border rounded-lg shadow-md group">
             <div className="relative">
               <Image
@@ -91,7 +100,7 @@ const ProductGrid = () => {
               <h3 className="text-lg font-bold">{product.name}</h3>
               <p className="text-gray-600 text-sm">{product.description}</p>
               <div className="mt-2">
-                <span className="text-xl font-semibold text-black">{product.price}</span>
+                <span className="text-xl font-semibold text-black">Rs. {product.price}</span>
                 {product.discountPrice && (
                   <span className="text-gray-500 line-through text-sm ml-2">
                     {product.discountPrice}
@@ -101,7 +110,7 @@ const ProductGrid = () => {
             </div>
 
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
-              <Link href="/shop/product">
+              <Link href={`/${product.Category}/${product.slug}`}>
                 <button className="bg-white w-[202px] h-[48px] text-[#B88E2F] px-4 py-2 text-[16px] font-semibold rounded">
                   Add to cart
                 </button>
