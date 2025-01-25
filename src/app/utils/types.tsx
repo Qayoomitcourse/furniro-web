@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image";
 
 export type Product = {
     id: number;
-    image: string | StaticImageData | undefined | any;
+    image: string | StaticImageData | undefined;
     name: string;
     description: string;
     price: number;
@@ -10,9 +10,9 @@ export type Product = {
     discount: string | null;
     isNew?: boolean;
     slug: string,
-    Category: string;
-    size: string [] | any[];
-    colour: string [] | any;
+    category: string;
+    size: string [] ;
+    colour: string [];
     quantity: number;
     sku: string;
     tags:string[]
@@ -22,11 +22,11 @@ export type Product = {
   
 export type Cart = {
     id: number;
-    image: string | StaticImageData | undefined | any;
+    image: string | StaticImageData | undefined;
     name: string;
     description: string;
     price: number;
-    size: string [] | any[];
-    colour: string [] | any;
+    size: string [];
+    colour: string [];
     quantity: number;
   }; 

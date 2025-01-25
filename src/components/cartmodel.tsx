@@ -20,7 +20,7 @@ const CartModel = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleRemove = (id: string) => {
+  const handleRemove = (id: number) => {
     dispatch(removeFromCart(id));
   };
 

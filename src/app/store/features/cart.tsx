@@ -1,13 +1,16 @@
 // store/features/cart.ts
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { StaticImageData } from "next/image";
 
-interface CartItem {
+export interface CartItem {
   id: number;
   name: string;
   price: number;
-  image: string;
+  image: string | StaticImageData;
   quantity: number;
+  size: string [];
+  color: string;
 }
 
 interface CartState {

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Features from "../../components/Features";
 import Tophead from "../../components/Tophead";

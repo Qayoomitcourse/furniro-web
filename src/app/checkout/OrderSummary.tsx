@@ -1,7 +1,7 @@
 "use client";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { CartItem } from "../../store/features/cart";
+import { RootState } from "../store/store";
+import { CartItem } from "../store/features/cart";
 
 const OrderSummary = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);

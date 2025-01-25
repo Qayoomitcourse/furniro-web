@@ -1,9 +1,10 @@
 "use client";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { CartItem } from "../../store/features/cart";
+
+import { CartItem } from "../store/features/cart";
 import Image from "next/image";
 import Link from "next/link";
+import { RootState } from "../store/store";
 
 const CheckoutForm = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);

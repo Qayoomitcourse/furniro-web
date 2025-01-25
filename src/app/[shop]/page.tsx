@@ -5,7 +5,9 @@ import filter from '../../../public/assets/filter.png';
 import gridround from '../../../public/assets/grid-round.png';
 import viewlist from '../../../public/assets/view-list.png';
 import Pagebotumsection from '@/components/pagebotumsection';
-import ProductGrid from '@/components/productGrid';
+import ProductGrid from './productgrid';
+
+
 
 const Shop = () => {
   return (
@@ -79,7 +81,7 @@ const Shop = () => {
 
         {/* product list */}
         <div>
-          <ProductGrid />
+          <ProductGrid/>
         </div>
 
         {/* bottom section */}

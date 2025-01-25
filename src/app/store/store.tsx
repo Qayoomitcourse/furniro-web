@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit'
-import products from '../utils/mock'
 import  cartSlice  from './features/cart'
 import  ProductSlice from './features/product'
 // ...

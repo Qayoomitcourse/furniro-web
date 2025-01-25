@@ -1,9 +1,6 @@
 import products from '@/app/utils/mock'
 import { Product } from '@/app/utils/types'
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-
-
 
 
 // Define the initial state using that type
