@@ -1,6 +1,5 @@
 "use client";
 import { useSelector } from "react-redux";
-
 import { CartItem } from "../store/features/cart";
 import Image from "next/image";
 import Link from "next/link";
@@ -84,37 +83,72 @@ const CheckoutForm = () => {
           </div>
         </div>
 
-        {/* Additional billing fields */}
-        <div className="space-y-4">
-          {/* Add other fields like Company, Country, Address, etc., similar to the original form */}
+        {/* Company */}
+        <div>
+          <label htmlFor="company" className="block text-sm font-medium mb-2">
+            Company
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="Company"
+            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
+          />
+        </div>
 
-          {/* Phone */}
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium mb-2">
-              Phone
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="Phone"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
-            />
-          </div>
+        {/* Country */}
+        <div>
+          <label htmlFor="country" className="block text-sm font-medium mb-2">
+            Country
+          </label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            placeholder="Country"
+            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
+          />
+        </div>
 
-          {/* Email */}
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
-            />
-          </div>
+        {/* Address */}
+        <div>
+          <label htmlFor="address" className="block text-sm font-medium mb-2">
+            Address
+          </label>
+          <textarea
+            name="address"
+            id="address"
+            className="h-24 w-full p-3 border rounded-md focus:outline-none focus:ring"
+          ></textarea>
+        </div>
+
+        {/* Phone */}
+        <div>
+          <label htmlFor="phone" className="block text-sm font-medium mb-2">
+            Phone
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Phone"
+            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
+          />
+        </div>
+
+        {/* Email */}
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
+          />
         </div>
       </div>
 

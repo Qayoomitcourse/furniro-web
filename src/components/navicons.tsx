@@ -6,7 +6,7 @@ import search from '../../public/assets/search.png';
 import hearticon from '../../public/assets/heart.png';
 import cart from '../../public/assets/cart.png';
 import CartModel from './cartmodel';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store/store';
@@ -16,6 +16,9 @@ const NavIcons = () => {
   const [isCartOpen, setCartOpen] = useState(false);
   const router = useRouter();
   const isLoggedIn = true;
+
+  // Reference for the cart container
+  const cartRef = useRef<HTMLDivElement>(null);
 
   // Select cart items from the Redux store
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -27,6 +30,21 @@ const NavIcons = () => {
       setProfileOpen((prev) => !prev);
     }
   };
+
+  // Close the cart when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
+        setCartOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex space-x-6 text-lg text-black">
@@ -67,7 +85,7 @@ const NavIcons = () => {
         </Link>
 
         {/* Cart Icon */}
-        <div className="relative">
+        <div className="relative" ref={cartRef}>
           <Image
             src={cart}
             alt="cart"
